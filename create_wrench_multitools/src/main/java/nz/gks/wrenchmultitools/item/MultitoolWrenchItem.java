@@ -16,6 +16,10 @@ import net.minecraft.world.level.block.state.BlockState;
  *   - Sneak-right-click to dismantle
  *   - Interact with Create configuration contexts
  *
+ * Minecart-contraption pickup (left-click an assembled minecart contraption) is handled
+ * separately in {@link nz.gks.wrenchmultitools.event.WrenchEventHandlers}, because
+ * Create's own handler uses a strict item-identity check that doesn't match subclasses.
+ *
  * NOTE: If a future Create version marks WrenchItem as final, swap this to implement
  * Create's IWrenchable-aware logic manually via onItemUseFirst / useOn. For Create
  * 6.0.x this class is extensible.
@@ -80,20 +84,6 @@ public class MultitoolWrenchItem extends WrenchItem {
      */
     @Override
     public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-
-    /**
-     * No durability damage on block breaking. Belt-and-braces: we also don't set
-     * MAX_DAMAGE in ModItems, so this shouldn't be called anyway, but explicit is
-     * better than implicit.
-     */
-    @Override
-    public boolean mineBlock(ItemStack stack, net.minecraft.world.level.Level level,
-                             BlockState state, net.minecraft.core.BlockPos pos,
-                             net.minecraft.world.entity.LivingEntity entity) {
-        // Intentionally do NOT call super — Create's WrenchItem damages on mine,
-        // which we don't want because we're durability-free.
         return true;
     }
 

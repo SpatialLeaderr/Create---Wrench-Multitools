@@ -16,33 +16,40 @@ import nz.gks.wrenchmultitools.item.ModItems;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Adds our wrenches to the vanilla {@code minecraft:enchantable/*} tags so that the
- * enchanting table and anvil actually recognise them as enchantable.
+ * Adds our wrenches to vanilla {@code minecraft:enchantable/*} tags (so they can be
+ * enchanted at the enchanting table) and to the NeoForge common {@code c:tools/wrench}
+ * tag (so Create recognises them as wrenches).
  *
- * Without these tags, {@link nz.gks.wrenchmultitools.item.MultitoolWrenchItem#getEnchantmentValue()}
- * returning a positive number won't help — vanilla enchantments check their
- * {@code supported_items} tag to decide which items they can apply to.
+ * The wrench tag is critical: Create's own {@code WrenchEventHandler} listens for
+ * right-clicks on IWrenchable blocks and intercepts them for any item in this tag
+ * (when the item isn't itself the vanilla Create wrench). Minecart-contraption pickup
+ * uses the same pattern on entity interacts. Without this tag our items are invisible
+ * to Create's third-party-wrench support.
  *
- * We include:
+ * Enchanting tags:
  *   - enchantable/mining        → Efficiency
  *   - enchantable/mining_loot   → Fortune, Silk Touch
  *   - enchantable/vanishing     → Curse of Vanishing
  *
- * We deliberately DON'T add:
+ * Deliberately NOT added:
  *   - enchantable/durability    → Unbreaking / Mending are meaningless on a durability-free item
  *   - enchantable/weapon, sharp_weapon → these are pickaxe-like tools, not swords
  *
  * NOTE: we build TagKeys from ResourceLocations directly rather than referencing
- * ItemTags.ENCHANTABLE_* constants, because those constants have different names
- * across Minecraft versions. This approach is version-agnostic.
+ * ItemTags.ENCHANTABLE_* or Tags.Items.TOOLS_WRENCH constants, because those constants
+ * have different names across Minecraft/NeoForge versions. This approach is version-agnostic.
  */
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    private static final TagKey<Item> ENCHANTABLE_MINING      = itemTag("enchantable/mining");
-    private static final TagKey<Item> ENCHANTABLE_MINING_LOOT = itemTag("enchantable/mining_loot");
-    private static final TagKey<Item> ENCHANTABLE_VANISHING   = itemTag("enchantable/vanishing");
+    private static final TagKey<Item> ENCHANTABLE_MINING      = minecraftItemTag("enchantable/mining");
+    private static final TagKey<Item> ENCHANTABLE_MINING_LOOT = minecraftItemTag("enchantable/mining_loot");
+    private static final TagKey<Item> ENCHANTABLE_VANISHING   = minecraftItemTag("enchantable/vanishing");
 
-    private static TagKey<Item> itemTag(String path) {
+    /** The {@code c:tools/wrench} tag Create listens for. */
+    private static final TagKey<Item> C_TOOLS_WRENCH = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("c", "tools/wrench"));
+
+    private static TagKey<Item> minecraftItemTag(String path) {
         return TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(path));
     }
 
@@ -63,6 +70,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.NETHERITE_WRENCH.get()
         };
 
+        // Identify as a wrench for Create + other mods
+        tag(C_TOOLS_WRENCH).add(wrenches);
+
+        // Enchanting eligibility
         tag(ENCHANTABLE_MINING).add(wrenches);
         tag(ENCHANTABLE_MINING_LOOT).add(wrenches);
         tag(ENCHANTABLE_VANISHING).add(wrenches);

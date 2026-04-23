@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "createwrenchmultitools:item/wrench_upgrade_template"
+  }
+}

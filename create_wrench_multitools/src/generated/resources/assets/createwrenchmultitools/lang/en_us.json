@@ -1,0 +1,13 @@
+{
+  "item.createwrenchmultitools.brass_wrench": "Brass Multitool Wrench",
+  "item.createwrenchmultitools.copper_wrench": "Copper Multitool Wrench",
+  "item.createwrenchmultitools.diamond_wrench": "Diamond Multitool Wrench",
+  "item.createwrenchmultitools.iron_wrench": "Iron Multitool Wrench",
+  "item.createwrenchmultitools.netherite_wrench": "Netherite Multitool Wrench",
+  "item.createwrenchmultitools.wrench_upgrade_template": "Smithing Template",
+  "item.createwrenchmultitools.wrench_upgrade_template.additions_slot_description": "Add upgrade material",
+  "item.createwrenchmultitools.wrench_upgrade_template.applies_to": "Wrench",
+  "item.createwrenchmultitools.wrench_upgrade_template.base_slot_description": "Add a wrench",
+  "item.createwrenchmultitools.wrench_upgrade_template.ingredients": "Copper Sheet, Iron, Brass, or Diamond",
+  "upgrade.createwrenchmultitools.wrench_upgrade": "Wrench Multitool Upgrade"
+}

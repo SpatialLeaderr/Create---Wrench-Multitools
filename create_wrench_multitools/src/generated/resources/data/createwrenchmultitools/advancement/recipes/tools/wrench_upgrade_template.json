@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_create_wrench": {
+      "conditions": {
+        "items": [
+          {
+            "items": "create:wrench"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "createwrenchmultitools:wrench_upgrade_template"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_create_wrench"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "createwrenchmultitools:wrench_upgrade_template"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+# Gradle
+.gradle/
+build/
+out/
+classes/
+bin/
+
+# NeoForge / ModDevGradle
+run/
+runs/
+src/generated/resources/.cache/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+.factorypath
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output JARs
+*.jar.cache

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_wrench": {
+      "conditions": {
+        "items": [
+          {
+            "items": "createwrenchmultitools:copper_wrench"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "createwrenchmultitools:iron_wrench_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_copper_wrench"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "createwrenchmultitools:iron_wrench_smithing"
+    ]
+  }
+}

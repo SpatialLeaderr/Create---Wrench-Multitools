@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "create:brass_ingot"
+  },
+  "base": {
+    "item": "createwrenchmultitools:iron_wrench"
+  },
+  "result": {
+    "count": 1,
+    "id": "createwrenchmultitools:brass_wrench"
+  },
+  "template": {
+    "item": "createwrenchmultitools:wrench_upgrade_template"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "create:copper_sheet"
+  },
+  "base": {
+    "item": "create:wrench"
+  },
+  "result": {
+    "count": 1,
+    "id": "createwrenchmultitools:copper_wrench"
+  },
+  "template": {
+    "item": "createwrenchmultitools:wrench_upgrade_template"
+  }
+}

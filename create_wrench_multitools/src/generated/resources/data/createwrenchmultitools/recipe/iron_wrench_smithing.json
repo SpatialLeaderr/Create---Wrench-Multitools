@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "item": "createwrenchmultitools:copper_wrench"
+  },
+  "result": {
+    "count": 1,
+    "id": "createwrenchmultitools:iron_wrench"
+  },
+  "template": {
+    "item": "createwrenchmultitools:wrench_upgrade_template"
+  }
+}

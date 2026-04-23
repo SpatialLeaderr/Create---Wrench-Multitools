@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "createwrenchmultitools:brass_wrench"
+  },
+  "result": {
+    "count": 1,
+    "id": "createwrenchmultitools:diamond_wrench"
+  },
+  "template": {
+    "item": "createwrenchmultitools:wrench_upgrade_template"
+  }
+}

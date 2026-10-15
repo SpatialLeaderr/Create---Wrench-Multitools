@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "nz.gks.wrenchmultitools.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractBogeyBlockMixin",
+    "DeployerMovingInteractionMixin",
+    "ItemProviderEntryMixin"
+  ],
+  "client": [
+    "client.RadialWrenchHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
